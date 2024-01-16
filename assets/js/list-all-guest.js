@@ -1,4 +1,4 @@
-// JavaScript file that implement logic for list-all-guest.html
+// JavaScript file that implement logic for list-all-guests.html
 
 import { GuestAPI } from "/assets/js/guestAPI.js"
 
@@ -11,7 +11,7 @@ window.onload = (e) => {
 
 async function LoadTable() {
     const guests = await GuestAPI.GetAllGuest();
-    if(!guest) {
+    if(!guests) {
         console.error('Could not load guests.')
         return;
     }
@@ -30,17 +30,17 @@ async function LoadTable() {
             {
                 "id": 1,
                 "hotelId": "Panorama",
-                "firstame": "Ivan",
-                "lastname": "Stojković",
-                "roomnumber": "11",
+                "firstName": "Ivan",
+                "lastName": "Stojković",
+                "roomNumber": "11",
                 "timestamp": "13.2.2023 13:30:33"
             },
             {
                 "id": 2,
                 "hotelId": "Panorama",
-                "firstame": "Ivan",
-                "lastname": "Ivanić",
-                "roomnumber": "12",
+                "firstName": "Ivan",
+                "lastName": "Ivanić",
+                "roomNumber": "12",
                 "timestamp": "13.2.2023 13:45:54"
             }
         ]
@@ -50,10 +50,10 @@ async function LoadTable() {
         <thead>
             <tr>
                 <th>ID</th>
-                <th>HotelId</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>RoomNumber</th>
+                <th>hotelId</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>roomNumber</th>
                 <th>Timestamp</th>
             </tr>
         </thead>
@@ -91,14 +91,14 @@ async function LoadTable() {
         const row = document.createElement('tr');
         row.addEventListener('dblclick', () => { DeleteGuest(e.id) });
 
-        const lstRoomnumbers = e.roomnumber.join('<br>')
+        
 
         row.innerHTML = `
                 <td>${e.id}</td>
                 <td>${e.hotelId}</td>
-                <td>${e.firstname}</td>
-                <td>${e.lastname}</td>
-                <td>${lstRoomnumbers}</td>
+                <td>${e.firstName}</td>
+                <td>${e.lastName}</td>
+                <td>${e.roomNumber}</td>
                 <td>${e.timestamp}</td>
         `
         table_body.appendChild(row)
@@ -116,10 +116,10 @@ function ClearTable() {
     <thead>
         <tr>
             <th>ID</th>
-            <th>HotelId</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>RoomNumber</th>
+            <th>hotelId</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>roomNumber</th>
             <th>Timestamp</th>
             </tr>
     </thead>
