@@ -5,14 +5,14 @@ import { GuestAPI } from "/assets/js/guestAPI.js"
 window.onload = (e) => {
     document.getElementById('home-button')?.addEventListener('click', () => { window.location.href = '/index.html' });
     document.getElementById('clear-all-fields-button')?.addEventListener('click', OnClearButtonClick);
-    document.getElementById('send-guest-button')?.addEventListener('click', OnCreateGuestButonClick);
+    document.getElementById('create-guest-button')?.addEventListener('click', OnCreateGuestButonClick);
 }
 
 function OnClearButtonClick() {
     document.getElementById('hotelId').value = '';
-    document.getElementById('firstname').value = '';
-    document.getElementById('lastname').value = '';
-    document.getElementById('roomnumber').value = '';
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('roomNumber').value = '';
 }
 
 async function OnCreateGuestButonClick() {
@@ -25,15 +25,15 @@ async function OnCreateGuestButonClick() {
     }
     guest.hotelId = hotelId.value;
 
-    const firstname = document.getElementById('firstname');
+    const firstname = document.getElementById('firstName');
     if(!firstname) {
         alert('FirstName field is empty!')
         return;
     }
 
-    guest.firstname = firstname.value.split(';');
+    
 
-    const lastname = document.getElementById('lastname');
+    const lastname = document.getElementById('lastName');
     if(!lastname) {
         alert('LastName field is empty!')
         return;
@@ -41,12 +41,12 @@ async function OnCreateGuestButonClick() {
     guest.firstname = firstname.value;
 
     
-    const roomnumber = document.getElementById('roomnumber');
+    const roomnumber = document.getElementById('roomNumber');
     if(!roomnumber) {
         alert('RoomNumber field is empty!')
         return;
     }
-    guest.roomnumber = roomnumber.value;
+    guest.roomNumber = roomNumber.value;
     
     const success = await GuestAPI.CreateNewGuest(guest);
     if(success) {
