@@ -1,4 +1,4 @@
-// JavaScript file that implement logic for write-new-guest.html
+// JavaScript file that implement logic for enter-new-guest.html
 
 import { GuestAPI } from "/assets/js/guestAPI.js"
 
