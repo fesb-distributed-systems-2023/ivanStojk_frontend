@@ -30,6 +30,7 @@ async function OnCreateGuestButonClick() {
         alert('FirstName field is empty!')
         return;
     }
+    guest.firstName=firstname.value;
 
     
 
@@ -38,7 +39,7 @@ async function OnCreateGuestButonClick() {
         alert('LastName field is empty!')
         return;
     }
-    guest.firstname = firstname.value;
+    guest.lastName = lastname.value;
 
     
     const roomnumber = document.getElementById('roomNumber');
@@ -46,7 +47,7 @@ async function OnCreateGuestButonClick() {
         alert('RoomNumber field is empty!')
         return;
     }
-    guest.roomNumber = roomNumber.value;
+    guest.roomNumber = roomnumber.value;
     
     const success = await GuestAPI.CreateNewGuest(guest);
     if(success) {

@@ -21,7 +21,7 @@ class _GuestAPI {
 
     // Returns true if successful and false if failed
     async CreateNewGuest(guest) {
-        const URL = `${Base_URL}/guest/all`;
+        const URL = `${Base_URL}/guest/new`;
         const response = await fetch(URL, {
             method: "POST",
             headers: {
